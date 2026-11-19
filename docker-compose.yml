@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: smartstock-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-smartstock}
+      POSTGRES_USER: ${DB_USERNAME:-smartstock}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-smartstock}
+      TZ: Asia/Ho_Chi_Minh
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - smartstock_pgdata:/var/lib/postgresql/data
+
+volumes:
+  smartstock_pgdata:
