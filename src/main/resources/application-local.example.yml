@@ -1,0 +1,17 @@
+# Copy file này thành application-local.yml (đã được .gitignore)
+# Chạy app với profile local: mvn spring-boot:run -Dspring-boot.run.profiles=local
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/smartstock
+    username: smartstock
+    password: smartstock
+
+app:
+  jwt:
+    secret: replace-with-your-local-secret-key-at-least-32-chars
+
+llm:
+  provider: mock # đổi thành 'claude' khi test thật với API key
+  anthropic:
+    api-key: sk-ant-xxxx
